@@ -27,10 +27,8 @@ Thought  blog web application that allows users to create posts, authenticate. I
 - **POST /api/auth/signup:** Register a new user.
 - **POST /api/auth/signin:** Authenticate an existing user.
 - **GET /api/posts:** Retrieve all posts.
-- **GET /api/posts/:id:** Retrieve a specific post by ID.
-- **POST /api/posts:** Create a new post.
-- **PUT /api/posts/:id:** Update a specific post by ID.
-- **DELETE /api/posts/:id:** Delete a specific post by ID.
+- **GET /api/posts/:postId:** Retrieve a specific post by ID.
+- **POST /api/post:** Create a new post.
 
 ## Installation
 
