@@ -6,8 +6,7 @@ Thought  blog web application that allows users to create posts, authenticate. I
 ## Features
 
 - **User Authentication** 
-- **Create Posts** 
-- **Responsive Design**
+- **Create Posts**
 - **Image Uploads** 
 - **Secure Storage** 
 
