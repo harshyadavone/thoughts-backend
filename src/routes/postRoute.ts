@@ -17,12 +17,12 @@ const upload = multer({
 router.post("/",verifyToken, upload.single("imageFile"), postController.createPost);
 
 // Route to get all posts
-router.get("/get-posts", verifyToken, postController.getPosts);
+router.get("/get-posts", postController.getPosts);
 
 // Route to get posts by author ID
-router.get("/posts/author/:authorId", verifyToken, postController.getPostsByAuthor);
+router.get("/posts/author/:authorId", postController.getPostsByAuthor);
 
 // Route to get a specific post by ID
-router.get("/:postId", verifyToken, postController.getPostById);
+router.get("/:postId", postController.getPostById);
 
 export default router;
