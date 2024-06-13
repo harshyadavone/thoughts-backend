@@ -1,5 +1,3 @@
-// postRoutes.ts
-
 import express from "express";
 import multer from "multer";
 import postController from "../controllers/postController";
@@ -16,15 +14,15 @@ const upload = multer({
 });
 
 // Route to create a new post
-router.post("/", upload.single("imageFile"), postController.createPost);
+router.post("/",verifyToken, upload.single("imageFile"), postController.createPost);
 
 // Route to get all posts
-router.get("/get-posts", express.json(), postController.getPosts);
+router.get("/get-posts", verifyToken, postController.getPosts);
 
 // Route to get posts by author ID
-router.get("/posts/author/:authorId", express.json(), postController.getPostsByAuthor);
+router.get("/posts/author/:authorId", verifyToken, postController.getPostsByAuthor);
 
 // Route to get a specific post by ID
-router.get("/:postId", express.json(), postController.getPostById);
+router.get("/:postId", verifyToken, postController.getPostById);
 
 export default router;

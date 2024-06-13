@@ -24,15 +24,15 @@ const createPost = async (req: MyRequest, res: Response) => {
       .toLowerCase()
       .replace(/[^a-zA-Z0-9-]/g, "");
 
-    const author = await User.findById(req.body.author); // Fetch the User document
+    const author = await User.findById(req.user.id); 
     if (!author) {
-      return res.status(404).json({ message: "Author not found" });
+      return res.status(404).json({ message: "Unauthorized" });
     }
 
     const newPost = new Post({
       ...req.body,
       slug,
-      author: req.body.author,
+      author: req.user.id,
       authorDetails: {
         fullName: author.fullName,
         email: author.email,

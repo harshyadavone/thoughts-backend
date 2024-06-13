@@ -38,6 +38,8 @@ const signup = async (
   }
 };
 
+const dev = process.env.NODE_ENV !== "production"
+
 const signin = async (
   req: SigninRequest,
   res: Response,
@@ -55,7 +57,7 @@ const signin = async (
     const { password: hashedPassword, ...rest } = validUser._doc;
     const expiryDate = new Date(Date.now() + 3600000); // 1 hour
     res
-      .cookie("access_token", token, { httpOnly: true, expires: expiryDate })
+      .cookie("access_token", token, { httpOnly: true, expires: expiryDate, secure: true , sameSite: "none"})
       .status(200)
       .json(rest);
   } catch (error) {
